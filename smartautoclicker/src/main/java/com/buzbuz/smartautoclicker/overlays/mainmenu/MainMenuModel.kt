@@ -74,6 +74,14 @@ class MainMenuModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    /**
+     * Tiến hành tự động chơi game MCOC
+     * NQMinh 31/12/2022
+     */
+    fun autoPlayGame(){
+        detectorEngine.autoPlayGame()
+    }
+
     fun setConfiguredScenario(scenarioId: Long) {
         viewModelScope.launch(Dispatchers.IO) {
             editionRepository.setConfiguredScenario(scenarioId)

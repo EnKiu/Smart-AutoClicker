@@ -343,5 +343,7 @@
     <string name="dropdown_item_intent_extra_type_string" translatable="false">String</string>
 
     <string name="item_title_debug_report_trigger_processed" translatable="false">%1$s / %2$s</string>
+    <string name="nqminh_custom_play_button_text">NQMinh custom play</string>
+    <string name="nqminh_custom_play_button_text">NQMinh custom play</string>
 
 </resources>

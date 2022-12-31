@@ -49,6 +49,13 @@
                     android:src="@drawable/ic_play_arrow"
                     android:contentDescription="@string/content_desc_play_pause_scenario" />
 
+                <!--NQMinh 31/12/2022-->
+                <ImageButton
+                    android:id="@+id/btn_nqminh_play"
+                    style="@style/AppTheme.Overlay.FloatingMenu.Buttons"
+                    android:src="@drawable/ic_play_arrow"
+                    android:contentDescription="@string/nqminh_custom_play_button_text" />
+
                 <ImageButton
                     android:id="@+id/btn_stop"
                     style="@style/AppTheme.Overlay.FloatingMenu.Buttons"

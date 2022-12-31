@@ -109,6 +109,8 @@ class MainMenu(context: Context, private val scenarioId: Long) : OverlayMenuCont
     override fun onMenuItemClicked(viewId: Int) {
         when (viewId) {
             R.id.btn_play -> viewModel.toggleDetection()
+            //NQMinh 31/12/2022
+            R.id.btn_nqminh_play -> viewModel.autoPlayGame()
             R.id.btn_click_list -> showScenarioConfigDialog()
             R.id.btn_stop -> destroy()
         }

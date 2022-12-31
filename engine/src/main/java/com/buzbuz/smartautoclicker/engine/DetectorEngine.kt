@@ -253,6 +253,38 @@ class DetectorEngine(context: Context) {
     }
 
     /**
+     * Tiến hành tự động chơi game MCOC
+     * NQMinh 31/12/2022
+     */
+    fun autoPlayGame(){
+        imageDetector = NativeDetector()
+
+        scenarioProcessor = ScenarioProcessor(
+            imageDetector = imageDetector!!,
+            detectionQuality = scenarioWithEndConditions.value!!.first.detectionQuality,//default: 600
+            randomize = scenarioWithEndConditions.value!!.first.randomize,//default: false
+            events = scenarioEvents.value,
+            bitmapSupplier = { path, width, height ->
+                // We can run blocking here, we are on the screen detector thread
+                runBlocking(Dispatchers.IO) {
+                    scenarioRepository.getBitmap(path, width, height)
+                }
+            },
+            androidExecutor = androidExecutor!!,
+            endConditionOperator = scenarioWithEndConditions.value!!.first.endConditionOperator,//default: 2
+            endConditions =  scenarioWithEndConditions.value!!.second,
+            onEndConditionReached = { stopDetection() },
+            debugEngine = _debugEngine.value,//default null
+        )
+
+        //scenarioProcessor?.invalidateScreenMetrics()
+
+        //var a = screenRecorder.acquireLatestImage();
+        //var c = a?.height;
+        //var b = 1;
+    }
+
+    /**
      * Start the screen detection.
      *
      * After calling this method, all [Image] displayed on the screen will be checked for the provided clicks conditions
